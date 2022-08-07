@@ -3,11 +3,9 @@ package com.gridnine.testing;
 import com.gridnine.testing.model.FlightBuilder;
 import com.gridnine.testing.model.Flights;
 import com.gridnine.testing.model.entity.Flight;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.*;

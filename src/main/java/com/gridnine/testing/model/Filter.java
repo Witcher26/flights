@@ -9,7 +9,6 @@ import java.util.List;
  * текущий набор фильтров
  */
 public interface Filter {
-
     /**
      * вылет до текущего момента времени
      */
@@ -24,5 +23,4 @@ public interface Filter {
      * общее время, проведённое на земле превышает два часа
      */
     List<Flight> transferTime(List<Flight> storage, int minutes);
-
 }

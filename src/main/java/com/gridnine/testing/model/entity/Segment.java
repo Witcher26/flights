@@ -2,9 +2,6 @@ package com.gridnine.testing.model.entity;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalField;
-import java.time.temporal.TemporalUnit;
 import java.util.Objects;
 
 /**
@@ -36,5 +33,4 @@ public class Segment {
         return '[' + departureDate.format(fmt) + '|' + arrivalDate.format(fmt)
                 + ']';
     }
-
 }

@@ -30,20 +30,24 @@ class Main {
             System.out.println("Вывод рейсов по фильтру №2: ");
             getFlights(filterSecond);
 
-            filterThird = filters.transferTime(flights, 120);
-            System.out.println("Вывод рейсов по фильтру №3: ");
+            filterThird = filters.departureUntilNow(flights, LocalDateTime.now());
+            filterThird = filters.arriveSegmentsUntilDeparture(filterThird);
+
+            filterThird = filters.transferTime(filterThird, 120);
+            System.out.println("Вывод рейсов по фильтру №3 (с учётом фильтров №1 и №2): ");
             getFlights(filterThird);
 
+            Thread.sleep(300);
             LOGGER.log(Level.INFO, "Filters were applied successfully");
-        } catch (NullPointerException ex) {
+        } catch (NullPointerException | InterruptedException ex) {
             LOGGER.log(Level.WARNING, "No flights with the specified filters");
         }
-
     }
 
     public static void getFlights(List<Flight> flights) {
         for (Flight flight : flights) {
             System.out.println(flight.toString());
         }
+        System.out.println("");
     }
 }

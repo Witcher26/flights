@@ -16,7 +16,7 @@ public class Flights implements Filter {
     public Flights() {
     }
 
-    //вылет до текущего момента времени
+    //фильтр №1 - вылет до текущего момента времени
     @Override
     public List<Flight> departureUntilNow(List<Flight> storage, LocalDateTime localDateTime) {
 
@@ -34,7 +34,7 @@ public class Flights implements Filter {
         return storageTmp;
     }
 
-    //сегменты с датой прилёта раньше даты вылета
+    //фильтр №2 - сегменты с датой прилёта раньше даты вылета
     @Override
     public List<Flight> arriveSegmentsUntilDeparture(List<Flight> storage) {
 
@@ -59,7 +59,7 @@ public class Flights implements Filter {
         return false;
     }
 
-    //общее время, проведённое на земле превышает два часа
+    //фильтр №3 - общее время, проведённое на земле, превышает два часа
     @Override
     public List<Flight> transferTime(List<Flight> storage, int minutes) {
 
@@ -70,7 +70,6 @@ public class Flights implements Filter {
             }
 
             if (flight.getSegments().size() == 1) {
-                LOGGER.log(Level.INFO, "1 segments in flight (without transfer): " + flight);
                 storageTmp.add(flight);
             }
             int minutesTmp = 0;
